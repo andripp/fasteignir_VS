@@ -39,45 +39,70 @@ function numberWithDots(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-function addTheDot(map, price, latLng, house){
-  var marker = new google.maps.Marker({
-      position: latLng,
-      title: price,
-      map: map,
-      icon: 'images/scale1.png'
-  });
+function addTheDot(map, price, latLng, house) {
+    if (house.price < 1000000) {
+        //do nothing since there is no price
+        return;
+    }
+    else {
+        var pricePerSqm = parseInt(house.price)/parseFloat(house.size);
+        if (pricePerSqm < 400000) {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: price,
+                map: map,
+                icon: 'images/scale1.png'
+            });
+        }
+        else if (pricePerSqm >= 400000 && pricePerSqm <= 550000) {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: price,
+                map: map,
+                icon: 'images/scale3.png'
+            });
+        }
+        else {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: price,
+                map: map,
+                icon: 'images/scale5.png'
+            });
+        }
+    }
   
-  markers.push(marker);
-  if(house.price > 1000000 && house.price < 20000000) {
-          u20.push(marker);
-  }
-  if(house.price >= 20000000 && house.price <= 30000000) {
-          s20t30.push(marker);
-  }
+      markers.push(marker);
+      if(house.price > 1000000 && house.price < 20000000) {
+              u20.push(marker);
+      }
+      if(house.price >= 20000000 && house.price <= 30000000) {
+              s20t30.push(marker);
+      }
   
   
-  google.maps.event.addListener(marker, 'click', function() {
-    if (typeof infowindow != 'undefined') infowindow.close();
-    if (house.bedrooms == null) {var room = "-";}
-    else {var room = house.bedrooms;}
-    var infoContent = '<div id="content" style="overflow:hidden;line-height:1.35;min-width:150px;">'+
-    '<div id="siteNotice">'+
-    '</div>'+ 
-    '<h1 id="firstHeading" class="firstHeading"> ' +  house.street_name  +'</h1>'+
-    '<img src="' + house.image + '" alt="Mynd." style="width:100px;">' +
-    '<div id="bodyContent">'+
-    'Ver\u00F0: ' + '<b>' + price + '</b><br>' +
-    'St\u00E6r\u00F0: ' + '<b>' + house.size + '</b><br>' +
-    'Herbergi: ' + '<b>' + room + '</b></p>' +
-    '<p>' + '<a href="http://fasteignir.visir.is/property/' + house.id  + '">' + 'Sko\u00F0a n\u00E1nar' +'</a> ' +
-    '</p>'+
-    '</div>'+
-    '</div>';
-    infowindow = new google.maps.InfoWindow({
-      content: infoContent
-    });
+      google.maps.event.addListener(marker, 'click', function() {
+          if (typeof infowindow != 'undefined') infowindow.close();
+          if (house.bedrooms == null) {var room = "-";}
+          else {var room = house.bedrooms;}
+          var infoContent = '<div id="content" style="overflow:hidden;line-height:1.35;min-width:150px;">'+
+          '<div id="siteNotice">'+
+          '</div>'+ 
+          '<h1 id="firstHeading" class="firstHeading"> ' +  house.street_name  +'</h1>'+
+          '<img src="' + house.image + '" alt="Mynd." style="width:100px;">' +
+          '<div id="bodyContent">'+
+          'Ver\u00F0: ' + '<b>' + price + '</b><br>' +
+          'St\u00E6r\u00F0: ' + '<b>' + house.size + '</b><br>' +
+          'Herbergi: ' + '<b>' + room + '</b></p>' +
+          '<p>' + '<a href="http://fasteignir.visir.is/property/' + house.id  + '">' + 'Sko\u00F0a n\u00E1nar' +'</a> ' +
+          '</p>'+
+          '</div>'+
+          '</div>';
+          infowindow = new google.maps.InfoWindow({
+              content: infoContent
+          });
     
-    infowindow.open(map,marker);
+          infowindow.open(map,marker);
   });
 }
 

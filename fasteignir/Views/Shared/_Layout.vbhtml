@@ -16,7 +16,7 @@
     </style>
 
     <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization"></script>
-    <script type="text/javascript" src="data/lo.js"></script>
+    <script type="text/javascript" src="data/test101.js"></script>
     <script type="text/javascript" src="Scripts/scripts.js"></script>
 
 </head>

@@ -27,8 +27,8 @@ function initialize() {
   }];
   map.setOptions({styles: styles});
 
-  for (var i in location) {
-    var house = location[i];
+  for (var i in test101) {
+    var house = test101[i];
     var latLng = new google.maps.LatLng(house.latitude,house.longitude); 
     addTheDot(map, numberWithDots(house.price), latLng, house);
   }

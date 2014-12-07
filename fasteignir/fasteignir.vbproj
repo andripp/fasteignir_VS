@@ -247,6 +247,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\orange.png" />
     <Content Include="images\purple.png" />
+    <Content Include="images\scale1.png" />
+    <Content Include="images\scale2.png" />
+    <Content Include="images\scale3.png" />
+    <Content Include="images\scale4.png" />
+    <Content Include="images\scale5.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

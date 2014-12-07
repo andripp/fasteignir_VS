@@ -18,7 +18,7 @@ function initialize() {
   featureType: "water",
   elementType: "all",
   stylers: [{ 
-      color: "#667D7C" }]
+      color: "#666666" }]
   }, {
   featureType: "poi.business",
   elementType: "labels",
@@ -44,7 +44,7 @@ function addTheDot(map, price, latLng, house){
       position: latLng,
       title: price,
       map: map,
-      icon: 'images/purple.png'
+      icon: 'images/scale1.png'
   });
   
   markers.push(marker);

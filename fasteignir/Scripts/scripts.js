@@ -6,7 +6,7 @@ var s20t30 = [];
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'),{
     zoom: 12,
-    center: new google.maps.LatLng(64.12860,-21.92592),
+    center: new google.maps.LatLng(64.11845, -21.88613),
     mapTypeId: google.maps.MapTypeId.ROADMAP 
   });
   
@@ -46,7 +46,7 @@ function addTheDot(map, price, latLng, house) {
     }
     else {
         var pricePerSqm = parseInt(house.price)/parseFloat(house.size);
-        if (pricePerSqm < 400000) {
+        if (pricePerSqm < 300000) {
             var marker = new google.maps.Marker({
                 position: latLng,
                 title: price,
@@ -54,12 +54,28 @@ function addTheDot(map, price, latLng, house) {
                 icon: 'images/scale1.png'
             });
         }
-        else if (pricePerSqm >= 400000 && pricePerSqm <= 550000) {
+        else if (pricePerSqm >= 300000 && pricePerSqm < 400000) {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: price,
+                map: map,
+                icon: 'images/scale2.png'
+            });
+        }
+        else if (pricePerSqm >= 400000 && pricePerSqm < 500000) {
             var marker = new google.maps.Marker({
                 position: latLng,
                 title: price,
                 map: map,
                 icon: 'images/scale3.png'
+            });
+        }
+        else if (pricePerSqm >= 500000 && pricePerSqm < 600000) {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: price,
+                map: map,
+                icon: 'images/scale4.png'
             });
         }
         else {

@@ -14,11 +14,9 @@
             height: 100%;
         }
     </style>
-
     <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization"></script>
-    <script type="text/javascript" src="data/test101.js"></script>
+    <script type="text/javascript" src="data/location101.js"></script>
     <script type="text/javascript" src="Scripts/scripts.js"></script>
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

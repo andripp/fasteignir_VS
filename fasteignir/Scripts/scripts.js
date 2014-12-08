@@ -27,8 +27,8 @@ function initialize() {
   }];
   map.setOptions({styles: styles});
 
-  for (var i in test101) {
-    var house = test101[i];
+  for (var i in location101) {
+    var house = location101[i];
     var latLng = new google.maps.LatLng(house.latitude,house.longitude); 
     addTheDot(map, numberWithDots(house.price), latLng, house);
   }
@@ -105,7 +105,7 @@ function addTheDot(map, price, latLng, house) {
           '<div id="siteNotice">'+
           '</div>'+ 
           '<h1 id="firstHeading" class="firstHeading"> ' +  house.street_name  +'</h1>'+
-          '<img src="' + house.image + '" alt="Mynd." style="width:100px;">' +
+          '<img src="' + house.image + '" alt="Mynd." style="width:150px;">' +
           '<div id="bodyContent">'+
           'Ver\u00F0: ' + '<b>' + price + '</b><br>' +
           'St\u00E6r\u00F0: ' + '<b>' + house.size + '</b><br>' +
